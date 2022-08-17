@@ -1,0 +1,30 @@
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-12 ui-lg-12">
+        <h1>Liberação de crédito</h1>
+        <hr>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <!-- Property type form control -->
+          <label for="tipoCredito">Tipo de Crédito:</label>
+          <select id="tipoCredito" [formControl]="tipoCreditoValue">
+            <option [ngValue]="null" selected>Selecione</option>
+            <option *ngFor="let tipoCreditoValue of tipoCredito | keyvalue" [ngValue]="tipoCreditoValue.value">{{tipoCreditoValue.value}}</option>
+          </select>
+        
+          <!-- Property valor form control -->
+          <label for="valor">Valor do Crédito:</label>
+          <input id="valor" class="form-control" type="number" required  [formControl]="valor">
+
+          <!-- Property valor form control -->
+          <label for="qtdParcelas">Quantidade de parcelas:</label>
+          <input id="qtdParcelas" class="form-control" type="number" required  [formControl]="qtdParcelas">
+
+          <!-- Property valor form control -->
+          <label for="vencimento">Vencimento:</label>
+          <input id="vencimento" class="form-control" type="date" [formControl]="vencimento">
+
+          <button class="button" type="submit">Enviar</button>
+        
+        </form>
+    </div>
+</div>
